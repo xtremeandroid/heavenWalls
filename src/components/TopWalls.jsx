@@ -5,6 +5,7 @@ import { server } from "../main";
 import { Button, Container, HStack, Radio, RadioGroup, Text } from "@chakra-ui/react";
 import Loader from "./Loader";
 import WallCard from "./WallCard";
+import Pagination from "./Pagination";
 
 const TopWalls = () => {
   const [walls, setWalls] = useState([]);
@@ -12,16 +13,23 @@ const TopWalls = () => {
   const [toprange, setToprange] = useState("1d");
   const [page, setPage] = useState(1);
 
+  const changePage = (page) => {
+    setPage(page);
+    setLoading(true);
+  };
+
   useEffect(() => {
     const fetchWalls = async () => {
-      const {data} = await axios.get(`${server}/search?sorting=toplist&topRange=${toprange}`);
+      const {data} = await axios.get(`${server}/search?sorting=toplist&topRange=${toprange}&page=${page}`);
       setWalls(data);
       setLoading(false);
 
     };
     fetchWalls();
     
-  }, [toprange]);
+  }, [toprange, page]);
+
+
 
 
   return (
@@ -51,6 +59,7 @@ const TopWalls = () => {
             />
           ))}
         </HStack>
+        <Pagination noofpages={walls.meta.last_page} changePage={changePage} page={page}/>
       </>
     )}</Container>
   );

@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const WallCard = ({ id, thumbnail}) => (
-  <Link to={`/coin/${id}`}>
+  <Link to={`/wall/${id}`}>
     <VStack
       w={"400px"}
       shadow={"lg"}

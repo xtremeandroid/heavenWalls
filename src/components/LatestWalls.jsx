@@ -5,19 +5,26 @@ import { server } from "../main";
 import { Container, HStack } from "@chakra-ui/react";
 import Loader from "./Loader";
 import WallCard from "./WallCard";
+import Pagination from "./Pagination";
 
 const LatestWalls = () => {
   const [walls, setWalls] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
+
+  const changePage = (page) => {
+    setPage(page);
+    setLoading(true);
+  };
 
   useEffect(() => {
     const fetchWalls = async () => {
-      const {data} = await axios.get(`${server}/search`);
+      const {data} = await axios.get(`${server}/search?page=${page}`);
       setWalls(data);
       setLoading(false);
     };
     fetchWalls();
-  }, []);
+  }, [page]);
 
   return (
     <Container maxW={"container.xl"}>{loading ? <Loader /> : (
@@ -31,6 +38,7 @@ const LatestWalls = () => {
             />
           ))}
         </HStack>
+        <Pagination noofpages={walls.meta.last_page} changePage={changePage} page={page}/>
       </>
     )}</Container>
   );

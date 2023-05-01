@@ -6,6 +6,7 @@ import LatestWalls from './components/LatestWalls'
 import TopWalls from './components/TopWalls'
 import WallpaperPage from './components/WallpaperPage'
 import Random from './components/Random'
+import SearchData from './components/SearchData'
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
       <Route path='/latest' element={<LatestWalls />}/>
       <Route path='/wall/:id' element={<WallpaperPage />}/>
       <Route path='/random' element={<Random />}/>
-
+      <Route path='/search' element={<SearchData />}/>
     </Routes>
     <Footer/>
   </Router>
