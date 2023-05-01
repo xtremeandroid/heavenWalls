@@ -1,5 +1,10 @@
 ## HeavenWalls - Wallpaper App (uses WallHaven API)
-This is a React web application that displays the current cryptocurrency prices of the top 100 cryptocurrencies. The application uses the CoinGecko API to retrieve the price data and displays it in a table format.
+A React wallpaper app that uses the Wallhaven API is a web-based application that allows users to search, browse, and download high-quality wallpapers for their desktops, mobile devices, or any other device. The app utilizes the Wallhaven API, which provides a large collection of wallpapers that are submitted and curated by a community of photographers and artists.
+The app provides a user-friendly interface that allows users to search for wallpapers based on keywords or tags. The search results are displayed in a paginated format, which allows users to navigate through multiple pages of wallpapers easily.
+Users can preview and download wallpapers by clicking on them. The app uses the Wallhaven API's wallpaper endpoint to fetch the wallpaper image URL and display it in the app. Users can also save their favorite wallpapers and organize them into collections for easy access later on.
+The app also features a trending and popular section, which displays wallpapers that are currently popular or trending in the Wallhaven community. Users can browse through these wallpapers and download them as well.
+The app is responsive and optimized for mobile devices, making it easy for users to browse and download wallpapers from their phones or tablets. The app also handles errors gracefully and provides helpful error messages to the user if something goes wrong.
+Overall, a React wallpaper app that uses the Wallhaven API provides a great way for users to find and download high-quality wallpapers for their devices, and the app's user-friendly interface and features make it easy and enjoyable to use.
 
 ## Try Yourself
 https://heavenwalls.netlify.app/
