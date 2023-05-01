@@ -55,7 +55,7 @@ const TopWalls = () => {
               <Radio value={"3d"}>3D</Radio>
               <Radio value={"1w"}>1W</Radio>
               <Radio value={"1M"}>1M</Radio>
-              <Radio value={"3M"}>3</Radio>
+              <Radio value={"3M"}>3M</Radio>
               <Radio value={"6M"}>6M</Radio>
               <Radio value={"1Y"}>1Y</Radio>
             </HStack>
