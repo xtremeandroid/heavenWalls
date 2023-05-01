@@ -6,6 +6,7 @@ import { Button, Container, HStack, Radio, RadioGroup, Text } from "@chakra-ui/r
 import Loader from "./Loader";
 import WallCard from "./WallCard";
 import Pagination from "./Pagination";
+import PageHeading from "./PageHeading";
 
 const Random = () => {
   const [walls, setWalls] = useState([]);
@@ -29,7 +30,8 @@ const Random = () => {
   }, []);
 
 
-  return (
+  return (<div>
+    <PageHeading pageDetail={"Random Wallpapers - Try your luck!"}/>
     <Container maxW={"container.xl"}>{loading ? <Loader /> : (
       <>     
 
@@ -45,6 +47,7 @@ const Random = () => {
         <Pagination noofpages={walls.meta.last_page} changePage={changePage} page={page}/>
       </>
     )}</Container>
+    </div>
   );
 };
 

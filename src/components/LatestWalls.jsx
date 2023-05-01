@@ -6,6 +6,7 @@ import { Container, HStack } from "@chakra-ui/react";
 import Loader from "./Loader";
 import WallCard from "./WallCard";
 import Pagination from "./Pagination";
+import PageHeading from "./PageHeading";
 
 const LatestWalls = () => {
   const [walls, setWalls] = useState([]);
@@ -26,7 +27,8 @@ const LatestWalls = () => {
     fetchWalls();
   }, [page]);
 
-  return (
+  return (<div>
+    <PageHeading pageDetail={"The latest wallpapers uploaded by our awesome community!"}/>
     <Container maxW={"container.xl"}>{loading ? <Loader /> : (
       <>
         <HStack wrap={"wrap"} justifyContent={"space-evenly"}>
@@ -41,6 +43,7 @@ const LatestWalls = () => {
         <Pagination noofpages={walls.meta.last_page} changePage={changePage} page={page}/>
       </>
     )}</Container>
+    </div>
   );
 };
 

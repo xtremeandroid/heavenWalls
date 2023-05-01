@@ -5,6 +5,7 @@ import { server } from "../main";
 import { Container, HStack } from "@chakra-ui/react";
 import Loader from "./Loader";
 import WallCard from "./WallCard";
+import PageHeading from "./PageHeading";
 
 const Home = () => {
   const [walls, setWalls] = useState([]);
@@ -20,6 +21,9 @@ const Home = () => {
   }, []);
 
   return (
+    <div>
+      <PageHeading pageDetail={"HeavenWalls - The Best Wallpapers on the Net !"}/>
+    
     <Container maxW={"container.xl"}>{loading ? <Loader /> : (
       <>
         <HStack wrap={"wrap"} justifyContent={"space-evenly"}>
@@ -33,6 +37,7 @@ const Home = () => {
         </HStack>
       </>
     )}</Container>
+    </div>
   );
 };
 

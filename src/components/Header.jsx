@@ -20,7 +20,7 @@ const Header = () => {
     <Button variant={"unstyled"} color={"white"}>
       <Link to="/search">Search</Link>
     </Button>
-  </HStack>
+    </HStack>
 }
 
 export default Header

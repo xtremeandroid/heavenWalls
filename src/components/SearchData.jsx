@@ -2,12 +2,13 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { server } from "../main";
-import { Center, Container, HStack } from "@chakra-ui/react";
+import { Center, Container, HStack, Heading } from "@chakra-ui/react";
 import Loader from "./Loader";
 import WallCard from "./WallCard";
 import Pagination from "./Pagination";
 import { Button, Input, InputGroup, InputLeftElement, InputRightAddon } from "@chakra-ui/react";
 import { Search2Icon } from "@chakra-ui/icons";
+import PageHeading from "./PageHeading";
 
 
 const SearchData = () => {
@@ -32,11 +33,15 @@ const SearchData = () => {
   }, [page, searchTerm]);
 
   return (<div>
+    <PageHeading pageDetail={"Search For Wallpapers"} />
     <HStack p={"5"} shadow={"base"} bgColor={'blackAlpha.900'} justifyContent={"center"}>
         <SearchComp setSearchTerm={setSearchTerm}/>
       </HStack>
     <Container maxW={"container.xl"}>{loading ? <Loader /> : (
       <>
+      <HStack p={"5"} justifyContent={"center"}>
+      <Heading>{`${walls.meta.total} Wallpapers Found`}</Heading>
+      </HStack>
         <HStack wrap={"wrap"} justifyContent={"space-evenly"}>
           {walls.data.map((i) => (
             <WallCard
@@ -57,7 +62,8 @@ const SearchComp = ({setSearchTerm}) => {
     const [query, setQuery] = useState("")
     return (
       <>
-        <InputGroup borderRadius={5} size="sm" w={"600px"}> 
+      
+        <InputGroup borderRadius={"6"} size="md"> 
           <InputLeftElement
             pointerEvents="none"
             children={<Search2Icon color="gray.600" />}
@@ -67,7 +73,7 @@ const SearchComp = ({setSearchTerm}) => {
             p={0}
             border="none"
           >
-            <Button onClick={()=>{setSearchTerm(query)}} size="sm" borderLeftRadius={0} borderRightRadius={3.3} border="1px solid #949494">
+            <Button onClick={()=>{setSearchTerm(query)}} size="md" borderLeftRadius={0} borderRightRadius={3.3} border="1px solid #949494">
               Search
             </Button>
           </InputRightAddon>
