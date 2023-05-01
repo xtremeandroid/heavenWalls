@@ -52,7 +52,7 @@ const TopWalls = () => {
             <HStack spacing={"4"}>
         <Text fontSize={"xl"} fontWeight={"semibold"}>SELECT CUSTOM RANGE</Text>    
               <Radio value={"1d"}>24H</Radio>
-              <Radio value={"3d"}>3</Radio>
+              <Radio value={"3d"}>3D</Radio>
               <Radio value={"1w"}>1W</Radio>
               <Radio value={"1M"}>1M</Radio>
               <Radio value={"3M"}>3</Radio>
