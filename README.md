@@ -35,16 +35,24 @@ To run this application, you will need to have Node.js and npm installed on your
 ### Installation
 
 Clone the repository to your local machine:
+```bash
 git clone https://github.com/xtremeandroid/HeavenWalls-WallPaperApp.git
+```
 
 Navigate to the project directory:
+```bash
 cd HeavenWalls-WallPaperApp
+```
 
 Install the required packages:
+```bash
 npm install
+```
 
 Start the development server:
+```bash 
 npm run dev
+```
 
 ## Screenshots
 ![1](https://user-images.githubusercontent.com/62198074/235439272-794cb2a0-eeb2-4877-a666-8d20dfb505a5.png)
