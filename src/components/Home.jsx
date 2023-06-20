@@ -13,7 +13,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetchWalls = async () => {
-      const {data} = await axios.get(`${server}/search`);
+      const { data } = await axios.get(`${server}/search?q=4k`);
       setWalls(data);
       setLoading(false);
     };
@@ -22,21 +22,23 @@ const Home = () => {
 
   return (
     <div>
-      <PageHeading pageDetail={"HeavenWalls - The Best Wallpapers on the Net !"}/>
-    
-    <Container maxW={"container.xl"}>{loading ? <Loader /> : (
-      <>
-        <HStack wrap={"wrap"} justifyContent={"space-evenly"}>
-          {walls.data.map((i) => (
-            <WallCard
-              key={i.id}
-              id={i.id}
-              thumbnail={i.thumbs.large}
-            />
-          ))}
-        </HStack>
-      </>
-    )}</Container>
+      <PageHeading
+        pageDetail={"HeavenWalls - The Best Wallpapers on the Net !"}
+      />
+
+      <Container maxW={"100%"}>
+        {loading ? (
+          <Loader />
+        ) : (
+          <>
+            <HStack wrap={"wrap"} justifyContent={"space-evenly"}>
+              {walls.data.map((i) => (
+                <WallCard key={i.id} id={i.id} thumbnail={i.thumbs.large} />
+              ))}
+            </HStack>
+          </>
+        )}
+      </Container>
     </div>
   );
 };

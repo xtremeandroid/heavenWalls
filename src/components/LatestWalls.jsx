@@ -20,29 +20,36 @@ const LatestWalls = () => {
 
   useEffect(() => {
     const fetchWalls = async () => {
-      const {data} = await axios.get(`${server}/search?page=${page}`);
+      const { data } = await axios.get(`${server}/search?page=${page}`);
       setWalls(data);
       setLoading(false);
     };
     fetchWalls();
   }, [page]);
 
-  return (<div>
-    <PageHeading pageDetail={"The latest wallpapers uploaded by our awesome community!"}/>
-    <Container maxW={"container.xl"}>{loading ? <Loader /> : (
-      <>
-        <HStack wrap={"wrap"} justifyContent={"space-evenly"}>
-          {walls.data.map((i) => (
-            <WallCard
-              key={i.id}
-              id={i.id}
-              thumbnail={i.thumbs.large}
+  return (
+    <div>
+      <PageHeading
+        pageDetail={"The latest wallpapers uploaded by our awesome community!"}
+      />
+      <Container maxW={"100%"}>
+        {loading ? (
+          <Loader />
+        ) : (
+          <>
+            <HStack wrap={"wrap"} justifyContent={"space-evenly"}>
+              {walls.data.map((i) => (
+                <WallCard key={i.id} id={i.id} thumbnail={i.thumbs.large} />
+              ))}
+            </HStack>
+            <Pagination
+              noofpages={walls.meta.last_page}
+              changePage={changePage}
+              page={page}
             />
-          ))}
-        </HStack>
-        <Pagination noofpages={walls.meta.last_page} changePage={changePage} page={page}/>
-      </>
-    )}</Container>
+          </>
+        )}
+      </Container>
     </div>
   );
 };

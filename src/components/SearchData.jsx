@@ -37,7 +37,7 @@ const SearchData = () => {
     <HStack p={"5"} shadow={"base"} bgColor={'blackAlpha.900'} justifyContent={"center"}>
         <SearchComp setSearchTerm={setSearchTerm}/>
       </HStack>
-    <Container maxW={"container.xl"}>{loading ? <Loader /> : (
+    <Container maxW={"100%"}>{loading ? <Loader /> : (
       <>
       <HStack p={"5"} justifyContent={"center"}>
       <Heading>{`${walls.meta.total} Wallpapers Found`}</Heading>
