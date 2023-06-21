@@ -9,9 +9,6 @@ Overall, a React wallpaper app that uses the Wallhaven API provides a great way 
 ## Try Yourself
 https://heavenwalls.netlify.app/
 
-Note : HeavenWalls has CORS error due to it being a public API so install and activate this extension else API wouldnt serve data
-
-https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=en
 
 ## Used Libraries
 * React
