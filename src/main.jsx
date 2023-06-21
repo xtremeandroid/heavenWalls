@@ -12,4 +12,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 );
 
 // export const server = "https://wallhaven.cc/api/v1";
-export const server = "https://heaven-walls-api.vercel.app/api/wallhaven/";
+export const server = "https://heaven-walls-api.vercel.app/api/wallhaven";
