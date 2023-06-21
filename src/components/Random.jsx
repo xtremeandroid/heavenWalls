@@ -27,7 +27,10 @@ const Random = () => {
 
   useEffect(() => {
     const fetchWalls = async () => {
-      const { data } = await axios.get(`${server}/search?sorting=random`);
+      // const { data } = await axios.get(
+      //   `${server}/search?sorting=random?page=${page}`
+      // );
+      const { data } = await axios.get(`${server}/random?page=${page}`);
       setWalls(data);
       setLoading(false);
     };

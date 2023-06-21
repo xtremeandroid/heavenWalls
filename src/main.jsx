@@ -11,4 +11,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   </React.StrictMode>
 );
 
-export const server = "https://wallhaven.cc/api/v1";
+// export const server = "https://wallhaven.cc/api/v1";
+export const server = "https://heaven-walls-api.vercel.app/api/wallhaven/";

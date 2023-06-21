@@ -13,7 +13,8 @@ const Home = () => {
 
   useEffect(() => {
     const fetchWalls = async () => {
-      const { data } = await axios.get(`${server}/search?q=4k`);
+      // const { data } = await axios.get(`${server}/search?q=4k`);
+      const { data } = await axios.get(`${server}/home`);
       setWalls(data);
       setLoading(false);
     };

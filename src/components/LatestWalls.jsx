@@ -20,7 +20,8 @@ const LatestWalls = () => {
 
   useEffect(() => {
     const fetchWalls = async () => {
-      const { data } = await axios.get(`${server}/search?page=${page}`);
+      // const { data } = await axios.get(`${server}/search?page=${page}`);
+      const { data } = await axios.get(`${server}/latest?page=${page}`);
       setWalls(data);
       setLoading(false);
     };

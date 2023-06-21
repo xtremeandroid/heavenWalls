@@ -29,8 +29,11 @@ const TopWalls = () => {
 
   useEffect(() => {
     const fetchWalls = async () => {
+      // const { data } = await axios.get(
+      //   `${server}/search?sorting=toplist&topRange=${toprange}&page=${page}`
+      // );
       const { data } = await axios.get(
-        `${server}/search?sorting=toplist&topRange=${toprange}&page=${page}`
+        `${server}/topwalls?toprange=${toprange}&page=${page}`
       );
       setWalls(data);
       setLoading(false);
