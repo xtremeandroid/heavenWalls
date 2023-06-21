@@ -55,10 +55,8 @@ npm run dev
 ```
 
 ## Screenshots
-![1](https://user-images.githubusercontent.com/62198074/235439272-794cb2a0-eeb2-4877-a666-8d20dfb505a5.png)
-![2](https://user-images.githubusercontent.com/62198074/235439277-4e311d13-182e-491c-9941-8b435bd695c5.png)
-![3](https://user-images.githubusercontent.com/62198074/235439282-dc715cd3-5a13-4bd3-bb46-e6707b96e8d3.png)
-![4](https://user-images.githubusercontent.com/62198074/235439286-df5e2282-a500-4728-b6df-8bf3a442a41b.png)
-![5](https://user-images.githubusercontent.com/62198074/235439289-1852e61e-74ad-499b-bc19-a3a9bef4e902.png)
-![6](https://user-images.githubusercontent.com/62198074/235439296-2b4d55e2-1805-4c90-b924-949e3c456e11.png)
-![7](https://user-images.githubusercontent.com/62198074/235439304-6a1f313d-994b-42f7-ad28-202b85b2b927.png)
+![chrome_sgsAa3IoK7](https://github.com/xtremeandroid/HeavenWalls-WallPaperApp/assets/62198074/20d8e70e-07e4-483c-b8a0-42aaa4d08e40)
+
+![chrome_u8lpVvsOSm](https://github.com/xtremeandroid/HeavenWalls-WallPaperApp/assets/62198074/6a58449f-1620-4580-bcbc-90b508d4b97d)
+
+![chrome_xpiHWgr5Tt](https://github.com/xtremeandroid/HeavenWalls-WallPaperApp/assets/62198074/265a5ffa-cfbb-48ed-a7a4-1c1313298b98)
