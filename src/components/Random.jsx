@@ -40,7 +40,7 @@ const Random = () => {
   return (
     <div>
       <PageHeading pageDetail={"Random Wallpapers - Try your luck!"} />
-      <Container maxW={"100%"}>
+      <Container maxW={"100%"} overflowX={"hidden"}>
         {loading ? (
           <Loader />
         ) : (

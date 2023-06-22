@@ -66,16 +66,20 @@ const TopWalls = () => {
   return (
     <div>
       <PageHeading pageDetail={`Top Walls Last ${days}`} />
-      <Container maxW={"100%"}>
+      <Container maxW={"100%"} overflowX={"hidden"}>
         {loading ? (
           <Loader />
         ) : (
           <>
             <RadioGroup value={toprange} onChange={setToprange} p={"8"}>
-              <HStack spacing={"4"}>
-                <Text fontSize={"xl"} fontWeight={"semibold"}>
-                  SELECT CUSTOM RANGE
-                </Text>
+              <HStack
+                spacing={"4"}
+                display={"flex"}
+                flexWrap={"wrap"}
+                fontSize={"xl"}
+                fontWeight={"semibold"}
+              >
+                <Text>SELECT RANGE</Text>
                 <Radio value={"1d"}>24H</Radio>
                 <Radio value={"3d"}>3D</Radio>
                 <Radio value={"1w"}>1W</Radio>

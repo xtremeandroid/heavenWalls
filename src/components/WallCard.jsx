@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 const WallCard = ({ id, thumbnail }) => (
   <Link to={`/wall/${id}`}>
     <VStack
-      w={"400px"}
+      maxW={"400px"}
+      minW={"360px"}
       shadow={"lg"}
       p={"2"}
       m={"4"}

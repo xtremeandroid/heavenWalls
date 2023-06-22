@@ -24,10 +24,10 @@ const Home = () => {
   return (
     <div>
       <PageHeading
-        pageDetail={"HeavenWalls - The Best Wallpapers on the Net !"}
+        pageDetail={"HeavenWalls - The Best Wallpapers on the Net."}
       />
 
-      <Container maxW={"100%"}>
+      <Container maxW={"100%"} overflowX={"hidden"}>
         {loading ? (
           <Loader />
         ) : (
