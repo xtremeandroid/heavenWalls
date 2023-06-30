@@ -10,7 +10,7 @@ const WallCard = ({ id, thumbnail }) => (
       shadow={"lg"}
       p={"2"}
       m={"2"}
-      m-top={"4"}
+      mt={"4"}
       borderRadius={"lg"}
       transition={"all 0.3s"}
       borderColor={"blackAlpha.600"}
