@@ -27,7 +27,7 @@ const Home = () => {
         pageDetail={"HeavenWalls - The Best Wallpapers on the Net."}
       />
 
-      <Container maxW={"100%"} overflowX={"hidden"}>
+      <Container maxW={"container.2xl"} overflowX={"hidden"}>
         {loading ? (
           <Loader />
         ) : (

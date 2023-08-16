@@ -66,7 +66,7 @@ const TopWalls = () => {
   return (
     <div>
       <PageHeading pageDetail={`Top Walls Last ${days}`} />
-      <Container maxW={"100%"} overflowX={"hidden"}>
+      <Container maxW={"container.2xl"} overflowX={"hidden"}>
         {loading ? (
           <Loader />
         ) : (

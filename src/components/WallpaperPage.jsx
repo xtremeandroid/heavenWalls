@@ -27,7 +27,11 @@ const WallpaperPage = () => {
   }, [params.id]);
 
   return (
-    <Container justifyContent={"center"} maxW={"100%"} overflowX={"hidden"}>
+    <Container
+      justifyContent={"center"}
+      maxW={"container.2xl"}
+      overflowX={"hidden"}
+    >
       {loading ? (
         <Loader />
       ) : (

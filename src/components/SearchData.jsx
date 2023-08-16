@@ -50,7 +50,7 @@ const SearchData = () => {
       >
         <SearchComp setSearchTerm={setSearchTerm} />
       </HStack>
-      <Container maxW={"100%"} overflowX={"hidden"}>
+      <Container maxW={"container.2xl"} overflowX={"hidden"}>
         {loading ? (
           <Loader />
         ) : (

@@ -33,7 +33,7 @@ const LatestWalls = () => {
       <PageHeading
         pageDetail={"The latest wallpapers uploaded by our awesome community!"}
       />
-      <Container maxW={"100%"} overflowX={"hidden"}>
+      <Container maxW={"container.2xl"} overflowX={"hidden"}>
         {loading ? (
           <Loader />
         ) : (
