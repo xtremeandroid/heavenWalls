@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { server } from "../main";
 import { Center, Container, HStack, Heading } from "@chakra-ui/react";
-import Loader from "./Loader";
-import WallCard from "./WallCard";
-import Pagination from "./Pagination";
+import Loader from "../components/Loader";
+import WallCard from "../components/WallCard";
+import Pagination from "../components/Pagination";
 import {
   Button,
   Input,
@@ -14,30 +14,23 @@ import {
   InputRightAddon,
 } from "@chakra-ui/react";
 import { Search2Icon } from "@chakra-ui/icons";
-import PageHeading from "./PageHeading";
+import PageHeading from "../components/PageHeading";
+import ErrorComponent from "../components/ErrorComponent";
+import { useGetSearchWallsQuery } from "../slices/wallsApiSlice";
 
 const SearchData = () => {
-  const [walls, setWalls] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
 
   const changePage = (page) => {
     setPage(page);
-    setLoading(true);
   };
 
-  useEffect(() => {
-    const fetchWalls = async () => {
-      // const {data} = await axios.get(`${server}/search?q=${searchTerm}`);
-      const { data } = await axios.get(
-        `${server}/search?search=${searchTerm}&page=${page}`
-      );
-      setWalls(data);
-      setLoading(false);
-    };
-    fetchWalls();
-  }, [page, searchTerm]);
+  const {
+    data: walls,
+    isLoading: loading,
+    isError: error,
+  } = useGetSearchWallsQuery({ page, searchTerm });
 
   return (
     <div>
@@ -53,6 +46,10 @@ const SearchData = () => {
       <Container maxW={"container.2xl"} overflowX={"hidden"}>
         {loading ? (
           <Loader />
+        ) : error ? (
+          <ErrorComponent
+            message={"Some Error Occured while loading wallpapers"}
+          />
         ) : (
           <>
             <HStack p={"5"} justifyContent={"center"}>

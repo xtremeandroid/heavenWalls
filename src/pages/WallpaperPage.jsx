@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { server } from "../main";
-import Loader from "./Loader";
+import Loader from "../components/Loader";
 import {
   Button,
   Center,

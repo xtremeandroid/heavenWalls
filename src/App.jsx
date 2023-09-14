@@ -6,12 +6,12 @@ import {
 } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Home from "./components/Home";
-import LatestWalls from "./components/LatestWalls";
-import TopWalls from "./components/TopWalls";
-import WallpaperPage from "./components/WallpaperPage";
-import Random from "./components/Random";
-import SearchData from "./components/SearchData";
+import Home from "./pages/Home";
+import LatestWalls from "./pages/LatestWalls";
+import TopWalls from "./pages/TopWalls";
+import WallpaperPage from "./pages/WallpaperPage";
+import Random from "./pages/Random";
+import SearchData from "./pages/SearchData";
 import { useEffect } from "react";
 
 function ScrollToTop() {

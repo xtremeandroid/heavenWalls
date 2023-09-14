@@ -1,25 +1,13 @@
-import axios from "axios";
 import React, { useState } from "react";
-import { useEffect } from "react";
-import { server } from "../main";
 import { Container, HStack } from "@chakra-ui/react";
-import Loader from "./Loader";
-import WallCard from "./WallCard";
-import PageHeading from "./PageHeading";
+import Loader from "../components/Loader";
+import WallCard from "../components/WallCard";
+import PageHeading from "../components/PageHeading";
+import { useGetHomeQuery } from "../slices/wallsApiSlice";
+import ErrorComponent from "../components/ErrorComponent";
 
 const Home = () => {
-  const [walls, setWalls] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchWalls = async () => {
-      // const { data } = await axios.get(`${server}/search?q=4k`);
-      const { data } = await axios.get(`${server}/home`);
-      setWalls(data);
-      setLoading(false);
-    };
-    fetchWalls();
-  }, []);
+  const { data: walls, isLoading, isError: error } = useGetHomeQuery();
 
   return (
     <div>
@@ -28,8 +16,14 @@ const Home = () => {
       />
 
       <Container maxW={"container.2xl"} overflowX={"hidden"}>
-        {loading ? (
+        {isLoading ? (
           <Loader />
+        ) : error ? (
+          <ErrorComponent
+            message={`Some error has occured while loading data : ${
+              error?.data?.message || error?.error
+            }`}
+          />
         ) : (
           <>
             <HStack wrap={"wrap"} justifyContent={"space-evenly"}>

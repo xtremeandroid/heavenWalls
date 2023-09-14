@@ -1,32 +1,24 @@
-import axios from "axios";
 import React, { useState } from "react";
-import { useEffect } from "react";
-import { server } from "../main";
 import { Container, HStack } from "@chakra-ui/react";
-import Loader from "./Loader";
-import WallCard from "./WallCard";
-import Pagination from "./Pagination";
-import PageHeading from "./PageHeading";
+import Loader from "../components/Loader";
+import WallCard from "../components/WallCard";
+import Pagination from "../components/Pagination";
+import PageHeading from "../components/PageHeading";
+import ErrorComponent from "../components/ErrorComponent";
+import { useGetLatestWallsQuery } from "../slices/wallsApiSlice";
 
 const LatestWalls = () => {
-  const [walls, setWalls] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
 
   const changePage = (page) => {
     setPage(page);
-    setLoading(true);
   };
 
-  useEffect(() => {
-    const fetchWalls = async () => {
-      // const { data } = await axios.get(`${server}/search?page=${page}`);
-      const { data } = await axios.get(`${server}/latest?page=${page}`);
-      setWalls(data);
-      setLoading(false);
-    };
-    fetchWalls();
-  }, [page]);
+  const {
+    data: walls,
+    isLoading: loading,
+    isError: error,
+  } = useGetLatestWallsQuery({ page });
 
   return (
     <div>
@@ -36,6 +28,10 @@ const LatestWalls = () => {
       <Container maxW={"container.2xl"} overflowX={"hidden"}>
         {loading ? (
           <Loader />
+        ) : error ? (
+          <ErrorComponent
+            message={"Some Error Occured while loading wallpapers"}
+          />
         ) : (
           <>
             <HStack wrap={"wrap"} justifyContent={"space-evenly"}>

@@ -1,7 +1,4 @@
-import axios from "axios";
-import React, { useState } from "react";
-import { useEffect } from "react";
-import { server } from "../main";
+import React, { useEffect, useState } from "react";
 import {
   Button,
   Container,
@@ -10,58 +7,52 @@ import {
   RadioGroup,
   Text,
 } from "@chakra-ui/react";
-import Loader from "./Loader";
-import WallCard from "./WallCard";
-import Pagination from "./Pagination";
-import PageHeading from "./PageHeading";
+import Loader from "../components/Loader";
+import WallCard from "../components/WallCard";
+import Pagination from "../components/Pagination";
+import PageHeading from "../components/PageHeading";
+import { useGetTopWallsQuery } from "../slices/wallsApiSlice";
+import { useParams } from "react-router-dom";
+import ErrorComponent from "../components/ErrorComponent";
 
 const TopWalls = () => {
-  const [walls, setWalls] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [toprange, setToprange] = useState("1d");
-  const [page, setPage] = useState(1);
   const [days, setDays] = useState("24 Hours");
+  const [page, setPage] = useState(1);
 
   const changePage = (page) => {
     setPage(page);
-    setLoading(true);
   };
 
-  useEffect(() => {
-    const fetchWalls = async () => {
-      // const { data } = await axios.get(
-      //   `${server}/search?sorting=toplist&topRange=${toprange}&page=${page}`
-      // );
-      const { data } = await axios.get(
-        `${server}/topwalls?toprange=${toprange}&page=${page}`
-      );
-      setWalls(data);
-      setLoading(false);
+  const {
+    data: walls,
+    isLoading: loading,
+    isError: error,
+  } = useGetTopWallsQuery({ page, toprange });
 
-      if (toprange == "1d") {
-        setDays("24 Hours");
-      }
-      if (toprange == "3d") {
-        setDays("3 Days");
-      }
-      if (toprange == "1w") {
-        setDays("Week");
-      }
-      if (toprange == "1M") {
-        setDays("Month");
-      }
-      if (toprange == "3M") {
-        setDays("3 Month");
-      }
-      if (toprange == "6M") {
-        setDays("6 Month");
-      }
-      if (toprange == "1Y") {
-        setDays("Year");
-      }
-    };
-    fetchWalls();
-  }, [toprange, page]);
+  useEffect(() => {
+    if (toprange == "1d") {
+      setDays("24 Hours");
+    }
+    if (toprange == "3d") {
+      setDays("3 Days");
+    }
+    if (toprange == "1w") {
+      setDays("Week");
+    }
+    if (toprange == "1M") {
+      setDays("Month");
+    }
+    if (toprange == "3M") {
+      setDays("3 Month");
+    }
+    if (toprange == "6M") {
+      setDays("6 Month");
+    }
+    if (toprange == "1Y") {
+      setDays("Year");
+    }
+  }, toprange);
 
   return (
     <div>
@@ -69,6 +60,10 @@ const TopWalls = () => {
       <Container maxW={"container.2xl"} overflowX={"hidden"}>
         {loading ? (
           <Loader />
+        ) : error ? (
+          <ErrorComponent
+            message={"Some Error Occured while loading wallpapers"}
+          />
         ) : (
           <>
             <RadioGroup value={toprange} onChange={setToprange} p={"8"}>
