@@ -13,6 +13,8 @@ import WallpaperPage from "./pages/WallpaperPage";
 import Random from "./pages/Random";
 import SearchData from "./pages/SearchData";
 import { useEffect } from "react";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -36,6 +38,8 @@ function App() {
         <Route path="/wall/:id" element={<WallpaperPage />} />
         <Route path="/random" element={<Random />} />
         <Route path="/search" element={<SearchData />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
       <Footer />
     </Router>
