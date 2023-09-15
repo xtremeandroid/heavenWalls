@@ -52,7 +52,7 @@ const TopWalls = () => {
     if (toprange == "1Y") {
       setDays("Year");
     }
-  }, toprange);
+  }, [toprange]);
 
   return (
     <div>

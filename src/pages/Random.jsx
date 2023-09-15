@@ -15,6 +15,7 @@ import WallCard from "../components/WallCard";
 import Pagination from "../components/Pagination";
 import PageHeading from "../components/PageHeading";
 import { useGetRandomWallsQuery } from "../slices/wallsApiSlice";
+import ErrorComponent from "../components/ErrorComponent";
 
 const Random = () => {
   const [page, setPage] = useState(1);
