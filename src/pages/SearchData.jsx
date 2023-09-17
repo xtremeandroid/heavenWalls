@@ -1,8 +1,5 @@
-import axios from "axios";
 import React, { useState } from "react";
-import { useEffect } from "react";
-import { server } from "../main";
-import { Center, Container, HStack, Heading } from "@chakra-ui/react";
+import { Container, HStack, Heading } from "@chakra-ui/react";
 import Loader from "../components/Loader";
 import WallCard from "../components/WallCard";
 import Pagination from "../components/Pagination";
@@ -88,6 +85,11 @@ const SearchComp = ({ setSearchTerm }) => {
           value={query}
           border="1px solid #949494"
           onChange={(e) => setQuery(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              setSearchTerm(query);
+            }
+          }}
         />
         <InputRightAddon p={0} border="none">
           <Button

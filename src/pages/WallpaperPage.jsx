@@ -1,30 +1,12 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
-import { server } from "../main";
 import Loader from "../components/Loader";
-import {
-  Button,
-  Center,
-  Container,
-  HStack,
-  Image,
-  VStack,
-} from "@chakra-ui/react";
+import { Button, Container, HStack, Image, VStack } from "@chakra-ui/react";
+import { useGetFetchWallQuery } from "../slices/wallsApiSlice";
 
 const WallpaperPage = () => {
-  const params = useParams();
-  const [loading, setLoading] = useState(true);
-  const [walls, setWalls] = useState([]);
-
-  useEffect(() => {
-    const fetchWalls = async () => {
-      const { data } = await axios.get(`${server}/w/${params.id}`);
-      setWalls(data);
-      setLoading(false);
-    };
-    fetchWalls();
-  }, [params.id]);
+  const { id } = useParams();
+  const { data: walls, isLoading: loading } = useGetFetchWallQuery({ id });
 
   return (
     <Container

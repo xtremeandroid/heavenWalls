@@ -10,7 +10,6 @@ import {
   MenuList,
   MenuItem,
   useMediaQuery,
-  VStack,
 } from "@chakra-ui/react";
 import {
   FaUser,

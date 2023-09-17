@@ -1,4 +1,4 @@
-import { HStack, Text, Heading } from "@chakra-ui/react";
+import { HStack, Heading } from "@chakra-ui/react";
 import React from "react";
 
 const PageHeading = ({ pageDetail }) => {

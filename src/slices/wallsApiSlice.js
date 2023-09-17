@@ -33,6 +33,12 @@ export const wallsApiSlice = apiSlice.injectEndpoints({
       }),
       keepUnusedDataFor: 5,
     }),
+    getFetchWall: builder.query({
+      query: ({ id }) => ({
+        url: `/wallhaven/w/${id}`,
+      }),
+      keepUnusedDataFor: 5,
+    }),
   }),
 });
 
@@ -42,4 +48,5 @@ export const {
   useGetLatestWallsQuery,
   useGetRandomWallsQuery,
   useGetSearchWallsQuery,
+  useGetFetchWallQuery,
 } = wallsApiSlice;

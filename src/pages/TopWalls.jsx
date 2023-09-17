@@ -1,18 +1,10 @@
 import React, { useEffect, useState } from "react";
-import {
-  Button,
-  Container,
-  HStack,
-  Radio,
-  RadioGroup,
-  Text,
-} from "@chakra-ui/react";
+import { Container, HStack, Radio, RadioGroup, Text } from "@chakra-ui/react";
 import Loader from "../components/Loader";
 import WallCard from "../components/WallCard";
 import Pagination from "../components/Pagination";
 import PageHeading from "../components/PageHeading";
 import { useGetTopWallsQuery } from "../slices/wallsApiSlice";
-import { useParams } from "react-router-dom";
 import ErrorComponent from "../components/ErrorComponent";
 
 const TopWalls = () => {

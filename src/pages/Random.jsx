@@ -1,7 +1,4 @@
-import axios from "axios";
 import React, { useState } from "react";
-import { useEffect } from "react";
-import { server } from "../main";
 import {
   Button,
   Container,
