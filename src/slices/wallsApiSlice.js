@@ -39,6 +39,18 @@ export const wallsApiSlice = apiSlice.injectEndpoints({
       }),
       keepUnusedDataFor: 5,
     }),
+    getLikedWalls: builder.query({
+      query: ({ id }) => ({
+        url: `/users/liked/${id}`,
+      }),
+      keepUnusedDataFor: 5,
+    }),
+    likeWallpaper: builder.mutation({
+      query: ({ userId, id }) => ({
+        url: `/users/like/${userId}/${id}`,
+        method: "POST",
+      }),
+    }),
   }),
 });
 
@@ -49,4 +61,6 @@ export const {
   useGetRandomWallsQuery,
   useGetSearchWallsQuery,
   useGetFetchWallQuery,
+  useGetLikedWallsQuery,
+  useLikeWallpaperMutation,
 } = wallsApiSlice;
