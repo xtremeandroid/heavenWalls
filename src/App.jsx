@@ -5,7 +5,6 @@ import {
   useLocation,
 } from "react-router-dom";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import LatestWalls from "./pages/LatestWalls";
 import TopWalls from "./pages/TopWalls";
@@ -15,6 +14,7 @@ import SearchData from "./pages/SearchData";
 import { useEffect } from "react";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import LikedWalls from "./pages/LikedWalls";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -40,8 +40,8 @@ function App() {
         <Route path="/search" element={<SearchData />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/liked" element={<LikedWalls />} />
       </Routes>
-      <Footer />
     </Router>
   );
 }

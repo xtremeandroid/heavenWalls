@@ -8,6 +8,7 @@ import {
   useGetLikedWallsQuery,
   useLikeWallpaperMutation,
 } from "../slices/wallsApiSlice";
+import { useDispatch } from "react-redux";
 
 const WallpaperPage = () => {
   const navigate = useNavigate();
@@ -16,12 +17,10 @@ const WallpaperPage = () => {
   const { data: walls, isLoading: loading } = useGetFetchWallQuery({ id });
   const { userInfo } = useSelector((state) => state.auth);
   const [liked, setLiked] = useState(false);
-
-  const {
-    data: likedWalls,
-    isLoading: loadingLikes,
-    isError: errLoadingLikes,
-  } = useGetLikedWallsQuery({ id: userInfo._id });
+  const dispatch = useDispatch();
+  const { data: likedWalls } = useGetLikedWallsQuery({
+    id: userInfo ? userInfo._id : "",
+  });
 
   const [likeWall] = useLikeWallpaperMutation();
 

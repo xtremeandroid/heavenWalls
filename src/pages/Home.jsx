@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Container, HStack } from "@chakra-ui/react";
 import Loader from "../components/Loader";
 import WallCard from "../components/WallCard";

@@ -71,8 +71,8 @@ const Header = () => {
                   <FaUser />
                 </MenuButton>
                 <MenuList>
-                  <MenuItem as={Link} to="/profile">
-                    Profile
+                  <MenuItem as={Link} to="/liked">
+                    My Likes
                   </MenuItem>
                   <MenuItem onClick={handleLogout}>Logout</MenuItem>
                 </MenuList>
@@ -139,8 +139,8 @@ const Header = () => {
                 </MenuButton>
 
                 <MenuList>
-                  <MenuItem as={Link} to="/profile">
-                    Profile
+                  <MenuItem as={Link} to="/liked">
+                    My Likes
                   </MenuItem>
                   <MenuItem onClick={handleLogout}>Logout</MenuItem>
                 </MenuList>
