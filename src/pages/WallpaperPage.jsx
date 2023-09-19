@@ -60,7 +60,12 @@ const WallpaperPage = () => {
         <Loader />
       ) : (
         <>
-          <Container display={"flex"} justifyContent={"space-evenly"}>
+          <Container
+            display={"flex"}
+            justifyContent={"space-evenly"}
+            flexWrap={"wrap"}
+            p={"4"}
+          >
             {liked ? (
               <LikeButton
                 handleLike={handleLike}
@@ -94,7 +99,13 @@ const BigWallCard = ({ id, thumbnail }) => (
 );
 
 const DownloadButton = ({ thumbnail }) => (
-  <Button variant={"unstyled"} bgColor={"green.900"} color={"white"} p={"2"}>
+  <Button
+    variant={"unstyled"}
+    bgColor={"green.900"}
+    color={"white"}
+    p={"2"}
+    m={"2"}
+  >
     <a href={thumbnail} target="_blank">
       Download This WallPaper
     </a>
@@ -108,6 +119,7 @@ const LikeButton = ({ handleLike, title }) => (
     bgColor={"green.900"}
     color={"white"}
     p={"2"}
+    m={"2"}
   >
     {title}
   </Button>
