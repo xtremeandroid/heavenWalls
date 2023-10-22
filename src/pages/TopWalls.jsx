@@ -22,6 +22,8 @@ const TopWalls = () => {
     isError: error,
   } = useGetTopWallsQuery({ page, toprange });
 
+  console.log(walls);
+
   useEffect(() => {
     if (toprange == "1d") {
       setDays("24 Hours");
@@ -55,6 +57,12 @@ const TopWalls = () => {
         ) : error ? (
           <ErrorComponent
             message={"Some Error Occured while loading wallpapers"}
+          />
+        ) : page > walls.meta.last_page ? (
+          <ErrorComponent
+            message={
+              "No more wallpapers available in this range. Please choose a different time range or explore other categories."
+            }
           />
         ) : (
           <>
