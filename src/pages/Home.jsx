@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, HStack } from "@chakra-ui/react";
 import Loader from "../components/Loader";
 import WallCard from "../components/WallCard";
 import PageHeading from "../components/PageHeading";
 import { useGetHomeQuery } from "../slices/wallsApiSlice";
 import ErrorComponent from "../components/ErrorComponent";
+import Pagination from "../components/Pagination";
 
 const Home = () => {
-  const { data: walls, isLoading, isError: error } = useGetHomeQuery();
+  const [page, setPage] = useState(1);
+
+  const changePage = (page) => {
+    setPage(page);
+  };
+
+  const { data: walls, isLoading, isError: error } = useGetHomeQuery({ page });
 
   return (
     <div>
@@ -31,6 +38,11 @@ const Home = () => {
                 <WallCard key={i.id} id={i.id} thumbnail={i.thumbs.large} />
               ))}
             </HStack>
+            <Pagination
+              noofpages={walls.meta.last_page}
+              changePage={changePage}
+              page={page}
+            />
           </>
         )}
       </Container>
