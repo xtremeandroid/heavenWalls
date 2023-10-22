@@ -14,6 +14,7 @@ const Pagination = ({ noofpages, changePage, page }) => {
         bgColor={"blackAlpha.900"}
         color={"white"}
         onClick={() => changePage(page + 1)}
+        isDisabled={page === noofpages}
       >
         NEXT
       </Button>
@@ -21,16 +22,9 @@ const Pagination = ({ noofpages, changePage, page }) => {
         bgColor={"blackAlpha.900"}
         color={"white"}
         onClick={() => changePage(page - 1)}
+        isDisabled={page === 1}
       >
         PREV
-      </Button>
-
-      <Button
-        bgColor={"blackAlpha.900"}
-        color={"white"}
-        onClick={() => changePage(noofpages)}
-      >
-        LAST
       </Button>
     </HStack>
   );
