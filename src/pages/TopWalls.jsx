@@ -22,8 +22,6 @@ const TopWalls = () => {
     isError: error,
   } = useGetTopWallsQuery({ page, toprange });
 
-  console.log(walls);
-
   useEffect(() => {
     if (toprange == "1d") {
       setDays("24 Hours");
