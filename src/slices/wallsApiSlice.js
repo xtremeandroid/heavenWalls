@@ -4,8 +4,8 @@ import { apiSlice } from "./apiSlice";
 export const wallsApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getHome: builder.query({
-      query: () => ({
-        url: `/wallhaven/home`,
+      query: ({ page }) => ({
+        url: `/wallhaven/home?page=${page}`,
       }),
       keepUnusedDataFor: 5,
     }),
